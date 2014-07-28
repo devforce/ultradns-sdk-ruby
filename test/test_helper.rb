@@ -21,6 +21,19 @@ end
 require "minitest/autorun"
 require "mocha/mini_test"
 require 'ultradns'
+require 'vcr'
+
+
+VCR.configure do |c|
+  c.cassette_library_dir = File.join(File.dirname(__FILE__), 'fixtures', 'vcr_cassettes')
+  #c.hook_into :webmock # or :fakeweb
+  c.hook_into :fakeweb
+  c.filter_sensitive_data('SECRET') do |interaction|
+    #puts "interaction.request.body = #{interaction.request.body}"
+    interaction.request.body.match("password=(.*)&")[1] rescue nil # dont store the password
+  end
+end
+
 
 
 module UltraDNSCredentials

@@ -26,5 +26,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "mocha", "~> 1.1.0"
   spec.add_development_dependency "minitest", "~> 5.4.0"
   spec.add_development_dependency "simplecov", "~> 0.9.0"
+  spec.add_development_dependency "vcr", "~> 2.9.2"
+  spec.add_development_dependency "fakeweb", '>= 1.3.0'
 
 end

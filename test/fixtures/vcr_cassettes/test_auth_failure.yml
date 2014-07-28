@@ -1,0 +1,163 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://restapi.ultradns.com/v1/authorization/token
+    body:
+      encoding: UTF-8
+      string: grant_type=password&password=SECRET&username=jdamick
+    headers:
+      accept:
+      - application/json
+      content-type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-headers:
+      - Origin, X-Requested-With, Content-Type, Accept, Authorization
+      access-control-allow-methods:
+      - POST, GET, OPTIONS, DELETE, PUT, PATCH
+      access-control-allow-origin:
+      - "*"
+      access-control-max-age:
+      - '3600'
+      content-type:
+      - application/json
+      date:
+      - Mon, 28 Jul 2014 02:15:05 GMT
+      transfer-encoding:
+      - chunked
+      connection:
+      - Close
+    body:
+      encoding: UTF-8
+      string: '{"tokenType":"","refreshToken":"0aabfdca86c1440f968d92d3899e9bbc","accessToken":"cba38be1d4f049ffb4a2c1f064ac3a84","expiresIn":""}'
+    http_version: '1.1'
+  recorded_at: Mon, 28 Jul 2014 02:15:05 GMT
+- request:
+    method: get
+    uri: https://restapi.ultradns.com/v1/status
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept:
+      - application/json
+      content-type:
+      - application/json
+      authorization:
+      - Bearer xx
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-headers:
+      - Origin, X-Requested-With, Content-Type, Accept, Authorization
+      access-control-allow-methods:
+      - POST, GET, OPTIONS, DELETE, PUT, PATCH
+      access-control-allow-origin:
+      - "*"
+      access-control-max-age:
+      - '3600'
+      date:
+      - Mon, 28 Jul 2014 02:15:05 GMT
+      content-length:
+      - '189'
+      connection:
+      - Close
+    body:
+      encoding: UTF-8
+      string: '{"errorCode":60001,"errorMessage":"invalid_grant:token not found, expired
+        or invalid","error":"invalid_grant","error_description":"60001: invalid_grant:token
+        not found, expired or invalid"}'
+    http_version: '1.1'
+  recorded_at: Mon, 28 Jul 2014 02:15:05 GMT
+- request:
+    method: post
+    uri: https://restapi.ultradns.com/v1/authorization/token
+    body:
+      encoding: UTF-8
+      string: grant_type=password&password=SECRET&username=jdamick
+    headers:
+      accept:
+      - application/json
+      content-type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-headers:
+      - Origin, X-Requested-With, Content-Type, Accept, Authorization
+      access-control-allow-methods:
+      - POST, GET, OPTIONS, DELETE, PUT, PATCH
+      access-control-allow-origin:
+      - "*"
+      access-control-max-age:
+      - '3600'
+      content-type:
+      - application/json
+      date:
+      - Mon, 28 Jul 2014 02:15:05 GMT
+      transfer-encoding:
+      - chunked
+      connection:
+      - Close
+    body:
+      encoding: UTF-8
+      string: '{"tokenType":"","refreshToken":"d1f39f1f6f024fa09a9afacf0831f0cd","accessToken":"8f40d0f768144fa8b47e1656185abf56","expiresIn":""}'
+    http_version: '1.1'
+  recorded_at: Mon, 28 Jul 2014 02:15:05 GMT
+- request:
+    method: get
+    uri: https://restapi.ultradns.com/v1/status
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept:
+      - application/json
+      content-type:
+      - application/json
+      authorization:
+      - Bearer 8f40d0f768144fa8b47e1656185abf56
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-headers:
+      - Origin, X-Requested-With, Content-Type, Accept, Authorization
+      access-control-allow-methods:
+      - POST, GET, OPTIONS, DELETE, PUT, PATCH
+      access-control-allow-origin:
+      - "*"
+      access-control-max-age:
+      - '3600'
+      content-type:
+      - application/json
+      date:
+      - Mon, 28 Jul 2014 02:15:05 GMT
+      transfer-encoding:
+      - chunked
+      connection:
+      - Close
+    body:
+      encoding: UTF-8
+      string: '{"message":"Good"}'
+    http_version: '1.1'
+  recorded_at: Mon, 28 Jul 2014 02:15:05 GMT
+recorded_with: VCR 2.9.2

@@ -16,20 +16,24 @@ class TestAuthentication < Minitest::Unit::TestCase
   end
 
   def test_auth
-    client = Ultradns::Client.new(@user, @pw)
+    VCR.use_cassette('test_auth') do
+      client = Ultradns::Client.new(@user, @pw)
 
-    pp client.account(TEST_ACCOUNT).zones
+      pp client.account(TEST_ACCOUNT).zones
 
-    pp client.accounts
+      pp client.accounts
 
-    result = client.status
-    assert result['message'] != nil
+      result = client.status
+      assert result['message'] != nil
+    end
   end
 
   def test_auth_failure
-    client = Ultradns::Client.new(@user, @pw)
-    client.instance_eval { @auth[:access_token] = 'xx' }
-    response = client.status
-    assert response['message'] != nil
+    VCR.use_cassette('test_auth_failure') do
+      client = Ultradns::Client.new(@user, @pw)
+      client.instance_eval { @auth[:access_token] = 'xx' }
+      response = client.status
+      assert response['message'] != nil
+    end
   end
 end

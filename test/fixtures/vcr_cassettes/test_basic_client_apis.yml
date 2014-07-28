@@ -1,0 +1,124 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://restapi.ultradns.com/v1/authorization/token
+    body:
+      encoding: UTF-8
+      string: grant_type=password&password=SECRET&username=jdamick
+    headers:
+      accept:
+      - application/json
+      content-type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-headers:
+      - Origin, X-Requested-With, Content-Type, Accept, Authorization
+      access-control-allow-methods:
+      - POST, GET, OPTIONS, DELETE, PUT, PATCH
+      access-control-allow-origin:
+      - "*"
+      access-control-max-age:
+      - '3600'
+      content-type:
+      - application/json
+      date:
+      - Mon, 28 Jul 2014 02:09:11 GMT
+      transfer-encoding:
+      - chunked
+      connection:
+      - Close
+    body:
+      encoding: UTF-8
+      string: '{"tokenType":"","refreshToken":"0b0dad0054dc4d2082194baebc254e97","accessToken":"c35666da249746dfbb4e1eed4aede97a","expiresIn":""}'
+    http_version: '1.1'
+  recorded_at: Mon, 28 Jul 2014 02:09:11 GMT
+- request:
+    method: get
+    uri: https://restapi.ultradns.com/v1/status
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept:
+      - application/json
+      content-type:
+      - application/json
+      authorization:
+      - Bearer c35666da249746dfbb4e1eed4aede97a
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-headers:
+      - Origin, X-Requested-With, Content-Type, Accept, Authorization
+      access-control-allow-methods:
+      - POST, GET, OPTIONS, DELETE, PUT, PATCH
+      access-control-allow-origin:
+      - "*"
+      access-control-max-age:
+      - '3600'
+      content-type:
+      - application/json
+      date:
+      - Mon, 28 Jul 2014 02:09:11 GMT
+      transfer-encoding:
+      - chunked
+      connection:
+      - Close
+    body:
+      encoding: UTF-8
+      string: '{"message":"Good"}'
+    http_version: '1.1'
+  recorded_at: Mon, 28 Jul 2014 02:09:11 GMT
+- request:
+    method: get
+    uri: https://restapi.ultradns.com/v1/version
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept:
+      - application/json
+      content-type:
+      - application/json
+      authorization:
+      - Bearer c35666da249746dfbb4e1eed4aede97a
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-headers:
+      - Origin, X-Requested-With, Content-Type, Accept, Authorization
+      access-control-allow-methods:
+      - POST, GET, OPTIONS, DELETE, PUT, PATCH
+      access-control-allow-origin:
+      - "*"
+      access-control-max-age:
+      - '3600'
+      content-type:
+      - application/json
+      date:
+      - Mon, 28 Jul 2014 02:09:11 GMT
+      transfer-encoding:
+      - chunked
+      connection:
+      - Close
+    body:
+      encoding: UTF-8
+      string: '{"version":"1.13.0-20140717130501.5c8da50"}'
+    http_version: '1.1'
+  recorded_at: Mon, 28 Jul 2014 02:09:11 GMT
+recorded_with: VCR 2.9.2
