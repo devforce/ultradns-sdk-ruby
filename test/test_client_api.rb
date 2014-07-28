@@ -38,6 +38,11 @@ class TestClientApi < Minitest::Unit::TestCase
 
       resp = client.account(TEST_ACCOUNT).zones
       assert resp['zones'] != nil
+
+      resp = client.account(TEST_ACCOUNT).users
+      assert resp['users'].size > 0
+      assert resp['resultInfo']['totalCount'] != nil
+pp resp
     end
   end
 
@@ -58,7 +63,7 @@ class TestClientApi < Minitest::Unit::TestCase
     VCR.use_cassette('test_zone_rrsets_apis') do
       begin
         client = Ultradns::Client.new(@user, @pw)
-        
+
         # create a test zone
         resp = client.create_primary_zone(TEST_ACCOUNT, TEST_ZONE)
         assert_equal 201, resp.code

@@ -1,7 +1,7 @@
 
 # UltraDNS SDK
 
-This SDK implements a subset of the UltraDNS functionality. It does not attempt to implement a client for all available UltraDNS REST API functionality. 
+This SDK implements a subset of the UltraDNS functionality. It does not attempt to implement a client for all available UltraDNS REST API functionality.
 Adding additional functionality should be relatively straightforward, and any contributions from the UltraDNS community would be greatly appreciated.
 
 
@@ -23,7 +23,17 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+
+* Right now only basic records are supported and RD (Resource Distribution) Pools.
+
+
+## Future
+
+* Directional Pools
+* Mail Forwarding
+* Web Forwarding
+
+
 
 ## Contributing
 

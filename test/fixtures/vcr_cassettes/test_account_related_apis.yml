@@ -29,16 +29,16 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Mon, 28 Jul 2014 02:11:14 GMT
+      - Mon, 28 Jul 2014 13:35:28 GMT
       transfer-encoding:
       - chunked
       connection:
       - Close
     body:
       encoding: UTF-8
-      string: '{"tokenType":"","refreshToken":"7045d81d2fc841e7a829933cd801c083","accessToken":"7f14f64dcabe4c58834ad6fca1dc63ae","expiresIn":""}'
+      string: '{"tokenType":"","refreshToken":"d83cd240a91043a6a77c87a5e46a784c","accessToken":"dd5782456bd640cbababeb8c50e982ba","expiresIn":""}'
     http_version: '1.1'
-  recorded_at: Mon, 28 Jul 2014 02:11:14 GMT
+  recorded_at: Mon, 28 Jul 2014 13:35:28 GMT
 - request:
     method: get
     uri: https://restapi.ultradns.com/v1/accounts
@@ -51,7 +51,7 @@ http_interactions:
       content-type:
       - application/json
       authorization:
-      - Bearer 7f14f64dcabe4c58834ad6fca1dc63ae
+      - Bearer dd5782456bd640cbababeb8c50e982ba
   response:
     status:
       code: 200
@@ -70,7 +70,7 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Mon, 28 Jul 2014 02:11:14 GMT
+      - Mon, 28 Jul 2014 13:35:28 GMT
       transfer-encoding:
       - chunked
       connection:
@@ -78,9 +78,9 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"resultInfo":{"totalCount":1,"offset":0,"returnedCount":1},"accounts":[{"accountName":"jdamick","accountHolderUserName":"Neustar
-        Dev","ownerUserName":"jdamick","numberOfUsers":15,"numberOfGroups":9,"accountType":"ORGANIZATION"}]}'
+        Dev","ownerUserName":"jdamick","numberOfUsers":12,"numberOfGroups":9,"accountType":"ORGANIZATION"}]}'
     http_version: '1.1'
-  recorded_at: Mon, 28 Jul 2014 02:11:14 GMT
+  recorded_at: Mon, 28 Jul 2014 13:35:28 GMT
 - request:
     method: get
     uri: https://restapi.ultradns.com/v1/accounts/jdamick/zones
@@ -93,7 +93,7 @@ http_interactions:
       content-type:
       - application/json
       authorization:
-      - Bearer 7f14f64dcabe4c58834ad6fca1dc63ae
+      - Bearer dd5782456bd640cbababeb8c50e982ba
   response:
     status:
       code: 200
@@ -112,7 +112,7 @@ http_interactions:
       content-type:
       - application/json
       date:
-      - Mon, 28 Jul 2014 02:11:14 GMT
+      - Mon, 28 Jul 2014 13:35:28 GMT
       transfer-encoding:
       - chunked
       connection:
@@ -121,5 +121,46 @@ http_interactions:
       encoding: UTF-8
       string: '{"queryInfo":{"sort":"NAME","reverse":false,"limit":100},"resultInfo":{"totalCount":6,"offset":0,"returnedCount":6},"zones":[{"properties":{"name":"directorysearch.nexgen.neustar.biz.","accountName":"jdamick","type":"PRIMARY","dnssecStatus":"UNSIGNED","status":"ACTIVE","owner":"dbradley2","resourceRecordCount":7,"lastModifiedDateTime":"2013-12-12T15:59Z"},"registrarInfo":{"nameServers":{"ok":["pdns1.ultradns.net.","pdns2.ultradns.net.","pdns3.ultradns.org.","pdns4.ultradns.org.","pdns5.ultradns.info.","pdns6.ultradns.co.uk."]}}},{"properties":{"name":"nexgen.neustar.biz.","accountName":"jdamick","type":"PRIMARY","dnssecStatus":"UNSIGNED","status":"ACTIVE","owner":"jdamick","resourceRecordCount":1480,"lastModifiedDateTime":"2014-07-15T11:24Z"},"registrarInfo":{"nameServers":{"ok":["pdns1.ultradns.net.","pdns2.ultradns.net.","pdns3.ultradns.org.","pdns4.ultradns.org.","pdns5.ultradns.info.","pdns6.ultradns.co.uk."]}}},{"properties":{"name":"nexgen.ultradns.net.","accountName":"jdamick","type":"PRIMARY","dnssecStatus":"UNSIGNED","status":"ACTIVE","owner":"jdamick","resourceRecordCount":8,"lastModifiedDateTime":"2012-04-04T19:38Z"},"registrarInfo":{"nameServers":{"ok":["pdns1.ultradns.net.","pdns2.ultradns.net.","pdns3.ultradns.org.","pdns4.ultradns.org.","pdns5.ultradns.info.","pdns6.ultradns.co.uk."]}}},{"properties":{"name":"pdp.neustar.biz.","accountName":"jdamick","type":"PRIMARY","dnssecStatus":"UNSIGNED","status":"ACTIVE","owner":"jdamick","resourceRecordCount":8,"lastModifiedDateTime":"2014-07-22T19:40Z"},"registrarInfo":{"nameServers":{"ok":["pdns1.ultradns.net.","pdns2.ultradns.net.","pdns3.ultradns.org.","pdns4.ultradns.org.","pdns5.ultradns.info.","pdns6.ultradns.co.uk."]}}},{"properties":{"name":"splunk.nexgen.neustar.biz.","accountName":"jdamick","type":"PRIMARY","dnssecStatus":"UNSIGNED","status":"ACTIVE","owner":"dbradley2","resourceRecordCount":7,"lastModifiedDateTime":"2013-09-13T18:18Z"},"registrarInfo":{"nameServers":{"unknown":["chns2.nc.neustar.com.","stns1.va.neustar.com.","stns2.va.neustar.com.","chifbprns1.nc.neustar.com.","stifbprns1.va.neustar.com.","chns1.nc.neustar.com."],"missing":["pdns1.ultradns.net.","pdns2.ultradns.net.","pdns3.ultradns.org.","pdns4.ultradns.org.","pdns5.ultradns.info.","pdns6.ultradns.co.uk."]}}},{"properties":{"name":"ultradns.nexgen.neustar.biz.","accountName":"jdamick","type":"PRIMARY","dnssecStatus":"UNSIGNED","status":"ACTIVE","owner":"dbradley2","resourceRecordCount":7,"lastModifiedDateTime":"2013-09-16T14:44Z"},"registrarInfo":{"nameServers":{"ok":["pdns1.ultradns.net.","pdns2.ultradns.net.","pdns3.ultradns.org.","pdns4.ultradns.org.","pdns5.ultradns.info.","pdns6.ultradns.co.uk."]}}}]}'
     http_version: '1.1'
-  recorded_at: Mon, 28 Jul 2014 02:11:16 GMT
+  recorded_at: Mon, 28 Jul 2014 13:35:28 GMT
+- request:
+    method: get
+    uri: https://restapi.ultradns.com/v1/accounts/jdamick/users
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept:
+      - application/json
+      content-type:
+      - application/json
+      authorization:
+      - Bearer dd5782456bd640cbababeb8c50e982ba
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-headers:
+      - Origin, X-Requested-With, Content-Type, Accept, Authorization
+      access-control-allow-methods:
+      - POST, GET, OPTIONS, DELETE, PUT, PATCH
+      access-control-allow-origin:
+      - "*"
+      access-control-max-age:
+      - '3600'
+      content-type:
+      - application/json
+      date:
+      - Mon, 28 Jul 2014 13:35:29 GMT
+      transfer-encoding:
+      - chunked
+      connection:
+      - Close
+    body:
+      encoding: UTF-8
+      string: '{"resultInfo":{"totalCount":1,"offset":0,"returnedCount":1},"users":[{"userName":"jdamick","firstName":"Jeffrey","lastName":"Damick"}]}'
+    http_version: '1.1'
+  recorded_at: Mon, 28 Jul 2014 13:35:29 GMT
 recorded_with: VCR 2.9.2

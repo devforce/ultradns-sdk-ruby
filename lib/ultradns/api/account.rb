@@ -16,7 +16,7 @@ class Ultradns::Api::Account < Ultradns::Api::ClientAccessor
   end
 
 
-  # List zones for account
+  # List zones for this account
   #
   #
   # === Optional Parameters
@@ -42,6 +42,11 @@ class Ultradns::Api::Account < Ultradns::Api::ClientAccessor
   #     client.account('myaccount').zones(q: {name: 'foo', zone_type: 'PRIMARY'}, sort: 'NAME', reverse: true, offset:10, limit:50)
   def zones(options={})
     client.with_auth_retry {|c| c.get("/accounts/#{@account_name}/zones", request_options(options)) }
+  end
+
+  # List users for this account
+  def users()
+    client.with_auth_retry {|c| c.get "/accounts/#{@account_name}/users", request_options }
   end
 
 end
