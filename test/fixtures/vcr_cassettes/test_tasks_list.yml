@@ -1,0 +1,83 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://restapi.ultradns.com/v1/authorization/token
+    body:
+      encoding: UTF-8
+      string: grant_type=password&password=SECRET&username=jdamick
+    headers:
+      accept:
+      - application/json
+      content-type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-headers:
+      - Origin, X-Requested-With, Content-Type, Accept, Authorization
+      access-control-allow-methods:
+      - POST, GET, OPTIONS, DELETE, PUT, PATCH
+      access-control-allow-origin:
+      - "*"
+      access-control-max-age:
+      - '3600'
+      content-type:
+      - application/json
+      date:
+      - Mon, 28 Jul 2014 14:41:18 GMT
+      transfer-encoding:
+      - chunked
+      connection:
+      - Close
+    body:
+      encoding: UTF-8
+      string: '{"tokenType":"","refreshToken":"7488ac967f514ba1a4702d161937eb39","accessToken":"7b99326628be40cabb4b54096fc7ec2e","expiresIn":""}'
+    http_version: '1.1'
+  recorded_at: Mon, 28 Jul 2014 14:41:17 GMT
+- request:
+    method: get
+    uri: https://restapi.ultradns.com/v1/tasks
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      accept:
+      - application/json
+      content-type:
+      - application/json
+      authorization:
+      - Bearer 7b99326628be40cabb4b54096fc7ec2e
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-headers:
+      - Origin, X-Requested-With, Content-Type, Accept, Authorization
+      access-control-allow-methods:
+      - POST, GET, OPTIONS, DELETE, PUT, PATCH
+      access-control-allow-origin:
+      - "*"
+      access-control-max-age:
+      - '3600'
+      content-type:
+      - application/json
+      date:
+      - Mon, 28 Jul 2014 14:41:18 GMT
+      transfer-encoding:
+      - chunked
+      connection:
+      - Close
+    body:
+      encoding: UTF-8
+      string: '[{"errorCode":70002,"errorMessage":"Data not found."}]'
+    http_version: '1.1'
+  recorded_at: Mon, 28 Jul 2014 14:41:18 GMT
+recorded_with: VCR 2.9.2

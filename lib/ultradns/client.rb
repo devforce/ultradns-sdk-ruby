@@ -128,6 +128,31 @@ class Ultradns::Client
     with_auth_retry {|c| c.post '/zones', request_options({:body => zone_data.to_json}) }
   end
 
+  # List the background tasks (jobs) running.  Some APIs will return a Task Id
+  # which can used to determine the state of those jobs.
+  #
+  # === Optional Parameters
+  #
+  # * +:q+ - The search parameters, in a hash. The query used to construct the list.
+  #          Valid keys are: 
+  #          code - valid values for 'code' are PENDING, IN_PROCESS, COMPLETE, and ERROR.
+  #          hasData - valid values for 'hasData' are true and false.
+  #
+  # * +offset+ - The position in the list for the first returned element (0 based). The
+  #              default value is 0.
+  #
+  # * +limit+ - The maximum number of rows requested. The default value is 100.
+  #
+  # * +sort+ - The sort column used to order the list. Valid sort fields are CODE, CONTENT_TYPE, EXTENSIONS,
+  #            HAS_DATA, and DATE. The default value is CODE.
+  #
+  # * +reverse+ - Whether the list is ascending (false) or descending (true). The default
+  #               value is false.
+  #
+  def tasks(options = {})
+    with_auth_retry {|c| c.get("/tasks", request_options(options)) }
+  end
+
 
 
   protected

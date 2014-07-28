@@ -28,6 +28,14 @@ class TestClientApi < Minitest::Unit::TestCase
     end
   end
 
+  def test_tasks_list
+    VCR.use_cassette('test_tasks_list') do
+      client = Ultradns::Client.new(@user, @pw)
+      resp = client.tasks(q: {code: 'PENDING'})
+      assert_equal 70002, resp.first['errorCode']
+    end
+  end
+
   def test_account_related_apis
     VCR.use_cassette('test_account_related_apis') do
       client = Ultradns::Client.new(@user, @pw)
@@ -42,7 +50,6 @@ class TestClientApi < Minitest::Unit::TestCase
       resp = client.account(TEST_ACCOUNT).users
       assert resp['users'].size > 0
       assert resp['resultInfo']['totalCount'] != nil
-pp resp
     end
   end
 
