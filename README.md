@@ -26,6 +26,24 @@ Or install it yourself as:
 
 * Right now only basic records are supported and RD (Resource Distribution) Pools.
 
+### Sample Usage
+
+```ruby
+
+client = Ultradns::Client.new("username", "secret password")
+
+# create a test zone
+client.create_primary_zone("myaccount", "somezone.biz")
+# create an A record
+client.zone("somezone.biz").rrset('A', 'www').create(60, ['192.168.1.1'])
+
+# list the resource record sets (rrsets)
+client.zone("somezone.biz").rrsets
+
+# list the A resource record sets
+client.zone("somezone.biz").rrsets('A')
+
+```
 
 ## Future
 
