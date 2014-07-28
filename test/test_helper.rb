@@ -38,15 +38,17 @@ end
 
 module UltraDNSCredentials
   def setup_credentials
-    @user = ENV['ULTRA_USER']
-    @pw = ENV['ULTRA_PW']
+    if ENV['RECORD']
+      @user = ENV['ULTRA_USER']
+      @pw = ENV['ULTRA_PW']
 
-    if @user == nil || @user == '' || @pw == nil || @pw == ''
-      puts "\n\n------------------------------------------------------------"
-      puts "ERROR - Please set ULTRA_USER & ULTRA_PW"
-      puts "Example: \nULTRA_USER=me ULTRA_PW=blah bundle exec rake test\n"
-      puts "------------------------------------------------------------\n\n"
-      raise "Invalid UltraDNS account user name or password"
+      if @user == nil || @user == '' || @pw == nil || @pw == ''
+        puts "\n\n------------------------------------------------------------"
+        puts "ERROR - Please set ULTRA_USER & ULTRA_PW"
+        puts "Example: \nULTRA_USER=me ULTRA_PW=blah bundle exec rake test\n"
+        puts "------------------------------------------------------------\n\n"
+        raise "Invalid UltraDNS account user name or password"
+      end
     end
   end
 end
