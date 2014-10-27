@@ -4,6 +4,5 @@
 # product names, company names, marks, logos and symbols may be trademarks
 # of their respective owners.
 
-module Ultradns
-  VERSION = "0.0.3"
-end
+
+require_relative "ultradns"

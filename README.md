@@ -30,6 +30,8 @@ Or install it yourself as:
 
 ```ruby
 
+require 'ultradns-sdk'
+
 client = Ultradns::Client.new("username", "secret password")
 
 # create a test zone
