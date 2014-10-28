@@ -18,9 +18,9 @@ class Ultradns::Client
   include Ultradns::Api::Authentication
 
   disable_rails_query_string_format
-  default_timeout 30
+  default_timeout 60
   open_timeout 10
-  read_timeout 10
+  read_timeout 60
   headers({'Accept' => 'application/json', 'Content-Type' => 'application/json'})
   format :json # force the format to json
 
