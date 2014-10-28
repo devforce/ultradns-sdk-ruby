@@ -51,7 +51,16 @@ class Ultradns::Client
 
     @options = {}
     # override or ignored if nil
-    @options[:base_uri] = HTTParty.normalize_base_uri(options[:host]) if options[:host]
+
+    default_base_uri = URI(self.class.default_options[:base_uri])
+
+    if options[:host]
+      host = options[:host].prepend("#{default_base_uri.scheme}://")
+      host << default_base_uri.path
+      @options[:base_uri] = HTTParty.normalize_base_uri(host)
+    elsif options[:base_uri] # take whatever they provide
+      @options[:base_uri] = HTTParty.normalize_base_uri(options[:base_uri])
+    end
 
     auth(username, password, @options[:base_uri] || self.class.default_options[:base_uri])
 
