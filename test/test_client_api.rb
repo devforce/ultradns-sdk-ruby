@@ -16,6 +16,18 @@ class TestClientApi < Minitest::Unit::TestCase
     setup_credentials
   end
 
+  def test_different_base_uri
+    VCR.use_cassette('test_different_base_uri') do
+      client = Ultradns::Client.new(@user, @pw, host: 'test-restapi.ultradns.com:443/v1')
+
+      result = client.status
+      assert result['message'] != nil
+
+      result = client.version
+      assert result['version'] != nil
+    end
+  end
+
   def test_basic_client_apis
     VCR.use_cassette('test_basic_client_apis') do
       client = Ultradns::Client.new(@user, @pw)

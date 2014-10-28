@@ -49,11 +49,11 @@ class Ultradns::Client
   def initialize(username, password, options = {})
     @logger ||= ::Logger.new($stdout)
 
-    auth(username, password)
-
     @options = {}
     # override or ignored if nil
     @options[:base_uri] = HTTParty.normalize_base_uri(options[:host]) if options[:host]
+
+    auth(username, password, @options[:base_uri] || self.class.default_options[:base_uri])
 
     logger.debug "Initializing UltraDNS Client using #{@options.inspect}"
   end
@@ -134,7 +134,7 @@ class Ultradns::Client
   # === Optional Parameters
   #
   # * +:q+ - The search parameters, in a hash. The query used to construct the list.
-  #          Valid keys are: 
+  #          Valid keys are:
   #          code - valid values for 'code' are PENDING, IN_PROCESS, COMPLETE, and ERROR.
   #          hasData - valid values for 'hasData' are true and false.
   #

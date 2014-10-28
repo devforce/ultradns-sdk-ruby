@@ -39,7 +39,7 @@ module Ultradns::Api::Authentication
     params
   end
 
-  def auth(username, password)
+  def auth(username, password, base_uri)
     @auth = {}
     @auth[:requested_at] = Time.now.to_i
     response = self.class.post('/authorization/token',
@@ -50,7 +50,8 @@ module Ultradns::Api::Authentication
       },
       headers: {
         'Content-Type' => 'application/x-www-form-urlencoded'
-      }
+      },
+      base_uri: base_uri
     )
 
     body = response.parsed_response
@@ -61,6 +62,7 @@ module Ultradns::Api::Authentication
     # temp
     @auth[:username] = username
     @auth[:password] = password
+    @auth[:base_url] = base_uri
 
     @auth[:access_token] = body['accessToken']
     @auth[:refresh_token] = body['refreshToken']
@@ -78,7 +80,7 @@ module Ultradns::Api::Authentication
 
   def refresh
     # expires not available, then reauth
-    return auth(@auth[:username], @auth[:password]) if no_expiry?
+    return auth(@auth[:username], @auth[:password], @auth[:base_url]) if no_expiry?
 
     # not expired yet.
     return unless refresh?
