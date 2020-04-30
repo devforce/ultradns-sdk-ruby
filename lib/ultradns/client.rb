@@ -47,7 +47,7 @@ class Ultradns::Client
   #     c = RestClient.new("myUname", "myPwd")
   #     c = RestClient.new("myUname", "myPwd", host: 'restapi-useast1b01-01.ct.ultradns.net:8080')
   def initialize(username, password, options = {})
-    @logger ||= ::Logger.new($stdout)
+    @logger = options[:logger] || ::Logger.new($stdout)
 
     @options = {}
     # override or ignored if nil
